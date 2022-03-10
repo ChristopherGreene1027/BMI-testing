@@ -1,6 +1,8 @@
 def bmi_calc():
-    height = float(input("Enter your height in inches: "))
+    height1 = float(input("Enter the feet part of your height: "))
+    height = float(input("Enter the inches part of your height : "))
     weight = float(input("Enter your weight in pounds (lb): "))
+    height = (height1*12) + height
     bmi = round(float((weight*703)/(height*height)), 2)
     print("Your bmi is: ", bmi)
 
