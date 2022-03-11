@@ -1,9 +1,29 @@
-def bmi_calc():
-    height1 = float(input("Enter the feet part of your height: "))
-    height = float(input("Enter the inches part of your height : "))
+def main():
+    print("\n=======BMI CALCULATOR=======")
+    print("\nWelcome to the BMI calculator! Enter your measurements below.\n")
+    choice = str(input("\nTo continue, type 'y'. To exit, type 'n': "))
+
+#takes in user data
+
+    height_feet = float(input("Enter the feet part of your height: "))
+    height_inches = float(input("Enter the inches part of your height : "))
     weight = float(input("Enter your weight in pounds (lb): "))
-    height = (height1*12) + height
-    bmi = round(float((weight*703)/(height*height)), 2)
+
+#prompts user 
+
+    if choice == 'y':
+        bmi_calc(height_feet, height_inches, weight)
+        return 0
+    if choice == 'n':
+        print("Good day!")
+    else: 
+        print("Invalid input. Please try again.")
+
+    
+
+def bmi_calc(height_feet, height_inches, weight):
+    total_height_inches = (height_feet*12) + height_inches
+    bmi = round(float((weight*703)/(total_height_inches*total_height_inches)), 2)
     print("Your bmi is: ", bmi)
 
     # BMI classification
@@ -18,3 +38,7 @@ def bmi_calc():
         print("Classification: Obese")
     else: 
         print("System error or incorrect BMI values. Please retry.")
+
+
+if __name__ == "__main__":
+    main()
