@@ -5,6 +5,7 @@ app = Flask(__name__)
 @app.route("/", methods=['POST', 'GET'])
 
 
+
 def hello_world():
     bmi=''
     underBMI=''
@@ -18,7 +19,18 @@ def hello_world():
         Height=(Feet*12) + Inches
         bmi=round(float((Weight*703)/(Height*Height)), 2)
         
-        #if bmi <= 18.5:
+        if bmi > 0:
+            if bmi <= 18.5:
+                print("Classification: Underwight")
+            elif 18.5 <= bmi < 24.9:
+                print("Classification: Normal Weight")
+            elif 25 <= bmi < 29.9:
+                print("Classification: Overweight")
+            elif 30 <= bmi:
+                print("Classification: Obese")
+            else:
+                print("System error")
+
         #    bmi = underBMI
         #elif 18.5 <= bmi < 24.9:
         #    bmi = normBMI
